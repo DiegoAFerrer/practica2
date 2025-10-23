@@ -9,6 +9,8 @@ public class App{
     }
 
     public static void main(String[] args) {
+        boolean on = true;
+
         double descuentoFestivo = 50/100;
 
         Scanner scanner = new Scanner(System.in);
@@ -51,9 +53,9 @@ public class App{
                     Premio selected = premios.get(scanner.nextInt());
 
                     wallet.removerTickets(selected.getPrice());
-
+                    System.out.println(selected.toString());
                     if (selected.getPrice() > wallet.getTickets()) {
-                        System.out.println("No hay suficientes boletos para comprar ese premio");
+                        System.out.println("No hay suficientes boletos para comprar" +  selected.getName());
                     } else{
                         System.out.println("Compré " + selected.getName() + " por " + selected.getPrice() + " boletos");
                     }
@@ -61,19 +63,21 @@ public class App{
 
                 case 4:
                     BilleteraParque.setFestivo();
+                    if (BilleteraParque.getFestivo() == false){
+                        System.out.println("Ya no es día festivo");
+                    } else{
+                        System.out.println("Hoy es día festivo");
+                    }
+                    break;
                 
                 case 5:
-
+                    on = false;
+                    System.out.println("Apagando sistema");
+                    break;
                     
                 default:
                     throw new AssertionError();
             }
-
-
-
-
-
-        } while (1 > 2);
-
+        } while (on == true);
     }
 }

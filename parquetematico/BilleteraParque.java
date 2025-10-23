@@ -37,13 +37,13 @@ public class BilleteraParque {
 
     public void agregarTickets(int sum){
         if(sum > 0){
-            this.tickets =+ sum;
+            this.tickets =  this.tickets + sum;
         }
     }
 
     public boolean removerTickets(int subtract){
         if(subtract > 0 && this.tickets >= subtract){
-            this.tickets =- subtract;
+            this.tickets = this.tickets - subtract;
             return true;
         } else{
             return false;
